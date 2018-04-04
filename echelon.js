@@ -38,7 +38,11 @@ var app = new Vue({
         els = eq.split(' ');
         for (let i = 0; i < els.length; i++) {
           const element = els[i];
-          if (element == '+' || element == '-' || element == '=') {
+          sign = '';
+          if (element == '-') {
+            sign = '-';
+            els.splice(i, 1);
+          } else if (element == '=' || element == '+') {
             els.splice(i, 1);
           }
 
@@ -52,12 +56,13 @@ var app = new Vue({
           if (coef == "") {
             coef = 1
           }
-          els[i] = coef
+
+          els[i] = sign + coef;
         }
         newEq.push(els);
       }
 
-      this.matrices.push(newEq);
+      this.matrices.unshift(newEq);
     }
   }
 })
