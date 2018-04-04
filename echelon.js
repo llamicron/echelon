@@ -2,7 +2,7 @@ var app = new Vue({
   el: "#main",
   data: {
     matrices: [
-      // [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]],
+      [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]],
       // [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]],
       // [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
     ],
@@ -42,7 +42,17 @@ var app = new Vue({
             els.splice(i, 1);
           }
 
-          els[i] = els[i].replace(/\D/g, '');
+          if (els.length < 4) {
+            this.error = "Give a coefficient for each term (including 0)";
+            return false
+          }
+
+
+          coef = els[i].replace(/\D/g, '');
+          if (coef == "") {
+            coef = 1
+          }
+          els[i] = coef
         }
         newEq.push(els);
       }

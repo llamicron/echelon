@@ -2,6 +2,7 @@
   width: 100%;
   font-size: x-large;
   margin-top: 2em;
+  border-left: 6px solid teal;
 }
 
 th {
@@ -11,3 +12,7 @@ th {
 #add-matrix-card {
   margin-top: 3em;
 }
+
+/* .result {
+
+} */
