@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Row Echelon Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="vue.min.js"></script>
+  <link rel="stylesheet" href="google_font.css">
+  <link rel="stylesheet" href="mdl.css" />
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="mdl.js"></script>
+
+</head>
+<body>
+  <div id="main">
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Row-Echelon Matrices</span>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <div class="mdl-grid">
+            <!-- Sidebar (Add a matrix) -->
+            <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet">
+              <div id="add-matrix-card" class="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Add a Matrix</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <!-- Form -->
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <textarea v-model:value="matrixInput" class="mdl-textfield__input" type="text" rows="15" id="matrix-input"></textarea>
+                    <label class="mdl-textfield__label" for="matrix-input">Equation</label>
+                  </div>
+                  <!-- Deletable Chip -->
+                  <span v-if="error" class="mdl-chip mdl-chip--deletable">
+                    <span class="mdl-chip__text">{{ error }}</span>
+                    <button @click="error = ''" type="button" class="mdl-chip__action">
+                      <i class="material-icons">cancel</i>
+                    </button>
+                  </span>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a @click="addMatrix" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Add
+                  </a>
+                </div>
+                <div class="mdl-card__menu">
+                </div>
+              </div>
+            </div>
+            <!-- Matrix Display -->
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+              <table v-for="matrix in matrices" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp wide-table">
+                <thead>
+                  <tr>
+                    <th>x</th>
+                    <th>y</th>
+                    <th>z</th>
+                    <th class="result">Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="row in matrix">
+                    <td v-for="value in row">{{ value }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="echelon.js"></script>
+</body>
+</html>

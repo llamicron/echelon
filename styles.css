@@ -1,0 +1,13 @@
+.wide-table {
+  width: 60%;
+  font-size: x-large;
+  margin-top: 2em;
+}
+
+th {
+  width: 100px;
+}
+
+#add-matrix-card {
+  margin-top: 3em;
+}
