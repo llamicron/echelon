@@ -2,9 +2,9 @@ var app = new Vue({
   el: "#main",
   data: {
     matrices: [
-      [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]],
-      [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]],
-      [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+      // [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]],
+      // [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]],
+      // [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
     ],
     matrixInput: "",
     error: ""
@@ -31,9 +31,23 @@ var app = new Vue({
         this.error = '';
       }
 
-      // eqs = eqs.slice(0, 3);
+      newEq = []
 
-      console.log(eqs);
+      for (let i = 0; i < eqs.length; i++) {
+        const eq = eqs[i];
+        els = eq.split(' ');
+        for (let i = 0; i < els.length; i++) {
+          const element = els[i];
+          if (element == '+' || element == '-' || element == '=') {
+            els.splice(i, 1);
+          }
+
+          els[i] = els[i].replace(/\D/g, '');
+        }
+        newEq.push(els);
+      }
+
+      this.matrices.push(newEq);
     }
   }
 })

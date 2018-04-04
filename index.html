@@ -15,7 +15,6 @@
 </head>
 <body>
   <div id="main">
-    <!-- Always shows a header, even in smaller screens. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
@@ -55,7 +54,8 @@
               </div>
             </div>
             <!-- Matrix Display -->
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+            <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
+              <h2>Matrices</h2>
               <table v-for="matrix in matrices" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp wide-table">
                 <thead>
                   <tr>
@@ -71,6 +71,10 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
+              <h2>Solved Matrices</h2>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus rerum pariatur deleniti architecto, animi ipsam adipisci quidem magni veritatis sint odio suscipit, repellendus ipsa odit nam officiis. Ipsum, obcaecati amet.
             </div>
           </div>
         </div>
