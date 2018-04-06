@@ -1,0 +1,12 @@
+{
+  "tasks": [
+    {
+      "taskName": "test",
+      "command": "pytest",
+      "args": [
+        "coef.py"
+      ],
+      "isTestCommand": true
+    }
+  ]
+}
